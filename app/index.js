@@ -78,13 +78,20 @@ var UmdGenerator = yeoman.generators.Base.extend({
 
   projectfiles: function () {
 
-    this.mkdir('test');
+    this.mkdir('test/unit');
+    this.mkdir('test/functional');
+    this.mkdir('src');
+    this.mkdir('styles');
 
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
+    this.copy('gitignore', '.gitignore');
+    this.copy('karma.conf.js', 'karma.conf.js');
     this.copy('README.md', 'README.md');
-    this.copy('umd.js', this.moduleName + '.js');
-    this.copy('test/umdSpec.js', 'test/' + this.moduleName + 'Spec.js');
+    this.copy('gulpfile.js', 'gulpfile.js');
+    this.copy('umd.js', 'src/' + this.moduleName + '.js');
+    this.copy('test/unit/umdSpec.js', 'test/unit/' + this.moduleName + 'Spec.js');
+    this.copy('TestsRunner.html', 'TestsRunner.html');
 
   }
 });

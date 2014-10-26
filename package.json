@@ -1,13 +1,12 @@
 {
-  "name": "generator-umd",
-  "version": "0.1.1",
-  "description": "An Yeoman Generator to create a basic UMD structure",
+  "name": "generator-umd-gulp",
+  "version": "0.1.0",
+  "description": "An Yeoman Generator to create a basic UMD structure with gulp setup, based on https://github.com/ruyadorno/generator-umd",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "https://github.com/ruyadorno/generator-umd.git",
+  "repository": "https://github.com/KubaZ/generator-umd-gulp.git",
   "author": {
-    "name": "Ruy Adorno",
-    "url": "http://ruyadorno.com"
+    "name": "Jakub Żmudziński"
   },
   "engines": {
     "node": ">=0.10.0"

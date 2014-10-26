@@ -1,4 +1,4 @@
-# generator-umd
+# generator-umd-gulp
 
 version: 0.1.1
 

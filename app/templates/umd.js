@@ -1,37 +1,30 @@
 (function (root, factory) {
+    'use strict';
 
-  'use strict';
-
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define([], function () {
-      return (root.returnExportsGlobal = factory());
-    });
-  } else if (typeof exports === 'object') {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like enviroments that support module.exports,
-    // like Node.
-    module.exports = factory();
-  } else {
-    // Browser globals
-    root.returnExportsGlobal = factory();
-  }
-
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define([], function () {
+            return (root.<%= moduleDefinition %> = factory());
+        });
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like enviroments that support module.exports,
+        // like Node.
+        module.exports = factory();
+    } else {
+        // Browser globals
+        root.<%= moduleDefinition %> = factory();
+    }
 }(this, function () {
-// UMD Definition above, do not remove this line
+    'use strict';
 
-// To get to know more about the Universal Module Definition
-// visit: https://github.com/umdjs/umd
+    var <%= moduleDefinition %> = function <%= moduleDefinition %>() {
+        this.someProperty = 'value';
+    };
 
-  'use strict';
+    <%= moduleDefinition %>.prototype.someMethod = function (value) {
+        return value + this.someProperty;
+    };
 
-  var <%= moduleDefinition %> = function <%= moduleDefinition %>() {
-    this.someProperty = 'value';
-  };
-
-  <%= moduleDefinition %>.prototype.someMethod = function (value) {
-    return value + this.someProperty;
-  };
-
-  return <%= moduleDefinition %>;
+    return <%= moduleDefinition %>;
 }));
