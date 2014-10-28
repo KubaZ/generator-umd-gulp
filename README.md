@@ -1,10 +1,10 @@
 # generator-umd-gulp
 
-version: 0.1.1
+version: 0.1.0
 
-[![Build Status](https://travis-ci.org/ruyadorno/generator-umd.svg?branch=master)](https://travis-ci.org/ruyadorno/generator-umd)
+> An Yeoman Generator to create a basic [UMD](https://github.com/umdjs/umd) (Universal Module Definition) structure with gulp for development purposes.
 
-> An Yeoman Generator to create a basic [UMD](https://github.com/umdjs/umd) (Universal Module Definition) structure.
+> Based on https://github.com/ruyadorno/generator-umd by Ruy Adorno
 
 
 ## Getting Started
@@ -37,7 +37,7 @@ npm install -g yo
 2) Install the UMD Generator
 
 ```shell
-npm install -g generator-umd
+npm install -g generator-umd-gulp
 ```
 
 
@@ -53,7 +53,7 @@ cd new-module/
 2) Run the generator:
 
 ```shell
-yo umd
+yo umd-gulp
 ```
 
 3) Input the required information, the generator will ask you:

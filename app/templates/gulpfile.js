@@ -3,10 +3,10 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
-var watch = require('gulp-watch');
 var karma = require('gulp-karma');
 var concat = require('gulp-concat');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
+var inject = require("gulp-inject");
 
 var paths = {
     src: './src/<%= moduleName %>.js',
@@ -22,6 +22,15 @@ var paths = {
         ];
     }
 };
+
+
+gulp.task('inject:tests', function () {
+    var target = gulp.src('./TestsRunner.html');
+    var sources = gulp.src(paths.functionalTests, {read: false});
+
+    return target.pipe(inject(sources, {relative: true}))
+        .pipe(gulp.dest('./'));
+});
 
 gulp.task('less', function () {
     gulp.src(paths.styles)
@@ -44,25 +53,26 @@ gulp.task('jshint', function () {
 
 gulp.task('watch', function () {
     gulp.watch(paths.styles, ['less']);
-    gulp.watch([paths.tests, paths.functionalTests, paths.src], ['test']);
+    gulp.watch([paths.tests, paths.src], ['test']);
+    gulp.watch(paths.functionalTests, ['test:e2e']);
 });
 
 gulp.task('unit', function() {
-  return gulp.src(paths.karma())
-    .pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'start'
-    }))
-    .on('error', function(err) {
-      throw err;
-    });
+    return gulp.src(paths.karma())
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'start'
+        }))
+        .on('error', function(err) {
+            throw err;
+        });
 });
 
 gulp.task('e2e', function () {
-  return gulp.src('TestsRunner.html')
-      .pipe(mochaPhantomJS());
+    return gulp.src('TestsRunner.html')
+        .pipe(mochaPhantomJS());
 });
 
 gulp.task('build', ['less', 'scripts:prod']);
 gulp.task('test', ['jshint', 'unit']);
-gulp.task('test:e2e', ['e2e']);
+gulp.task('test:e2e', ['inject:tests', 'e2e']);

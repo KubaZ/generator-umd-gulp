@@ -24,7 +24,6 @@
   "dependencies": {
     "yeoman-generator": "~0.17.x",
     "to-camel-case": "=0.2.1",
-    "to-slug-case": "=0.1.2",
     "yosay": "^0.1.0"
   },
   "devDependencies": {

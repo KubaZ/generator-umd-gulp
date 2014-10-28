@@ -1,7 +1,6 @@
 'use strict';
 
 var toCamelCase = require('to-camel-case');
-var toSlugCase = require('to-slug-case');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
@@ -9,7 +8,7 @@ var yosay = require('yosay');
 // ---
 
 
-var UmdGenerator = yeoman.generators.Base.extend({
+var UmdGulpGenerator = yeoman.generators.Base.extend({
 
 
   init: function () {
@@ -52,8 +51,8 @@ var UmdGenerator = yeoman.generators.Base.extend({
     // Register required data from answers
     this.prompt(prompts, function (props) {
 
-      this.moduleName = toSlugCase(props.moduleName.trim());
-      this.moduleDefinition = toCamelCase(this.moduleName);
+      this.moduleName = toCamelCase(props.moduleName.trim());
+      this.moduleDefinition = this.moduleName;
       this.description = props.description.trim();
       this.repository = props.repository.trim();
 
@@ -96,5 +95,5 @@ var UmdGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = UmdGenerator;
+module.exports = UmdGulpGenerator;
 

@@ -5,21 +5,22 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
         <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
-    </head>
-    <body>
-        <div id="mocha"></div>
         <script src="node_modules/mocha/mocha.js"></script>
         <script src="node_modules/chai/chai.js"></script>
         <script src="src/<%= moduleName %>.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/sinonjs/sinon.js"></script>
+    </head>
+    <body>
+        <div id="mocha"></div>
         <script>
             mocha.ui('bdd');
             mocha.reporter('html');
             var expect = chai.expect;
         </script>
 
-        <!-- Put your tests here -->
+        <!-- inject:js -->
+        <!-- endinject -->
 
         <script>
             if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
