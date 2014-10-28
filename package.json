@@ -1,6 +1,6 @@
 {
   "name": "generator-umd-gulp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An Yeoman Generator to create a basic UMD structure with gulp setup, based on https://github.com/ruyadorno/generator-umd",
   "license": "MIT",
   "main": "app/index.js",
