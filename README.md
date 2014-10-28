@@ -4,7 +4,7 @@ version: 0.1.0
 
 > An Yeoman Generator to create a basic [UMD](https://github.com/umdjs/umd) (Universal Module Definition) structure with gulp for development purposes.
 
-> Based on https://github.com/ruyadorno/generator-umd by Ruy Adorno
+> Based on [generator-umd](https://github.com/ruyadorno/generator-umd) by Ruy Adorno
 
 
 ## Getting Started
@@ -21,7 +21,9 @@ This script is an [Yeoman Generator](http://yeoman.io/), meant to be used with s
 
 - File definition for both **npm** and **Bower** package managers will be also generated along with the initial structure.
 
-- A simple [Mocha](http://visionmedia.github.io/mocha/) test suit will be available with some dummy tests.
+- Setup for unit testing with karma / mocha will be generated with example unit test file.
+
+- Setup for e2e tests using mochaPhantomjs will be generated
 
 
 ## Setup
@@ -39,7 +41,6 @@ npm install -g yo
 ```shell
 npm install -g generator-umd-gulp
 ```
-
 
 ## Generating your module
 
@@ -64,18 +65,16 @@ yo umd-gulp
 
 4) You should be ready to go!
 
-- Tests can be run using `npm test` command.
-- Please do not remove the comments metadata from the generated js file, see reasoning below.
-
+- Tests can be run using `npm test` command. Coverage for unit tests will be available in coverage/ directory.
+- E2E tests can be run using `npm run e2e` command.
+- For development purposes run `npm run watch` command.
+- To minify your module run `npm run build` command.
 
 ## Todo
 
 ### Support a way of easily adding dependencies
 
 If you need to consume other libraries from inside your module, you will have to take a look at the [UMD spec](https://github.com/umdjs/umd/blob/master/returnExportsGlobal.js) and implement it by yourself.
-
-I have plans to add this feature in a subgenerator, using the comment metadata from the generated module file.
-
 
 ## Contributing
 
