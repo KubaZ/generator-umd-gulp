@@ -1,7 +1,7 @@
 {
   "node": true,
   "esnext": true,
-  "bitwise": true,
+  "bitwise": false,
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
@@ -25,6 +25,12 @@
     "it": true,
     "describe": true,
     "assert": true,
-    "window": true
+    "window": true,
+    "document": true,
+    "XMLHttpRequest": true,
+    "XDomainRequest": true,
+    "sinon": true,
+    "beforeEach": true,
+    "afterEach": true
   }
 }

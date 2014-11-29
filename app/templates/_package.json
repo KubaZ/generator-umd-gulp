@@ -8,7 +8,7 @@
     "build": "gulp build",
     "watch": "gulp watch",
     "test": "gulp test",
-    "e2e": "gulp e2e"
+    "e2e": "gulp test:e2e"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "gulp-mocha-phantomjs": "^0.3.0",
     "gulp-util": "^3.0.0",
     "gulp-inject": "1.0.2",
+    "gulp-release-tasks": "0.0.3",
     "karma": "^0.12.21",
     "karma-chai": "^0.1.0",
     "karma-coverage": "^0.2.6",

@@ -1,6 +1,6 @@
 # generator-umd-gulp
 
-version: 0.1.0
+version: 0.3.0
 
 > An Yeoman Generator to create a basic [UMD](https://github.com/umdjs/umd) (Universal Module Definition) structure with gulp for development purposes.
 
@@ -70,6 +70,20 @@ yo umd-gulp
 - For development purposes run `npm run watch` command.
 - To minify your module run `npm run build` command.
 
+### tagging
+task             | version
+-----------------|-------------------------------------
+gulp tag         | v0.0.1 -> v0.0.2 + commit + tag + push
+gulp tag --minor | v0.0.1 -> v0.1.0 + commit + tag + push
+gulp tag --major | v0.0.1 -> v1.0.1 + commit + tag + push
+
+### bumping
+task             | version
+--------------   |-----------------
+gulp bump        | v0.0.1 -> v0.0.2
+gulp bump --minor| v0.0.1 -> v0.1.0
+gulp bump --major| v0.0.1 -> v1.0.1
+
 ## Todo
 
 ### Support a way of easily adding dependencies
@@ -79,7 +93,6 @@ If you need to consume other libraries from inside your module, you will have to
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality.
-
 
 ## License
 

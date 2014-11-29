@@ -7,6 +7,7 @@ var karma = require('gulp-karma');
 var concat = require('gulp-concat');
 var mochaPhantomJS = require('gulp-mocha-phantomjs');
 var inject = require("gulp-inject");
+require('gulp-release-tasks')(gulp);
 
 var paths = {
     src: './src/<%= moduleName %>.js',
@@ -23,12 +24,11 @@ var paths = {
     }
 };
 
-
 gulp.task('inject:tests', function () {
     var target = gulp.src('./TestsRunner.html');
     var sources = gulp.src(paths.functionalTests, {read: false});
 
-    return target.pipe(inject(sources, {relative: true}))
+    target.pipe(inject(sources, {relative: true}))
         .pipe(gulp.dest('./'));
 });
 
@@ -58,21 +58,23 @@ gulp.task('watch', function () {
 });
 
 gulp.task('unit', function() {
-    return gulp.src(paths.karma())
+    gulp.src(paths.karma())
         .pipe(karma({
             configFile: 'karma.conf.js',
             action: 'start'
         }))
         .on('error', function(err) {
-            throw err;
+            console.log(err);
         });
 });
 
 gulp.task('e2e', function () {
-    return gulp.src('TestsRunner.html')
-        .pipe(mochaPhantomJS());
+    gulp.src('TestsRunner.html')
+        .pipe(mochaPhantomJS().on('error', function(err) {
+            console.log(err);
+        }));
 });
 
 gulp.task('build', ['less', 'scripts:prod']);
-gulp.task('test', ['jshint', 'unit']);
-gulp.task('test:e2e', ['inject:tests', 'e2e']);
+gulp.task('test', ['build', 'jshint', 'unit']);
+gulp.task('test:e2e', ['build', 'inject:tests', 'e2e']);
