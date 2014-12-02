@@ -1,8 +1,8 @@
 # generator-umd-gulp
 
-version: 0.3.0
+version: 0.3.1
 
-> An Yeoman Generator to create a basic [UMD](https://github.com/umdjs/umd) (Universal Module Definition) structure with gulp for development purposes.
+> Basic [UMD](https://github.com/umdjs/umd) generator with gulp setup.
 
 > Based on [generator-umd](https://github.com/ruyadorno/generator-umd) by Ruy Adorno
 

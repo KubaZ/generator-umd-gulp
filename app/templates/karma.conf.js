@@ -27,7 +27,7 @@ module.exports = function (config) {
         files: [
             'src/<%= moduleName %>.js',
             'bower_components/sinonjs/sinon.js',
-            'tests/unit/*.js'
+            'test/unit/*.js'
         ],
 
         // test results reporter to use
